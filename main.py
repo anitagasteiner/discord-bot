@@ -19,7 +19,6 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print(f'Ready! Ich bin {bot.user}.')
 
-bot.run(token, log_handler=handler, log_level=logging.DEBUG)
 
 @bot.event
 async def on_message(message):
@@ -33,4 +32,6 @@ async def on_message(message):
 
     await bot.process_commands(message)
 
+
+bot.run(token, log_handler=handler, log_level=logging.DEBUG)
 
