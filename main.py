@@ -22,12 +22,17 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
+    channel = message.channel
+
     if message.author == bot.user:
         return
+    
+    if 'hallo' in message.content.lower():
+        await channel.send(f'Hallo, {message.author}!')
 
     if 'banana' in message.content.lower():
         await message.delete()
-        channel = message.channel
+        #channel = message.channel
         await channel.send(f'Hey, {message.author}! Dieser Begriff ist nur für die Schüler*innen der DA geeignet.')
 
     await bot.process_commands(message)
