@@ -20,6 +20,11 @@ async def on_ready():
     print(f'Ready! Ich bin {bot.user}.')
 
 
+@bot.command()
+async def hallo(ctx):
+    await ctx.send(f'Hallo, {ctx.author.mention}! Schön, dich zu treffen.')
+
+
 @bot.event
 async def on_message(message):
     channel = message.channel
@@ -27,8 +32,8 @@ async def on_message(message):
     if message.author == bot.user:
         return
     
-    if 'hallo' in message.content.lower():
-        await channel.send(f'Hallo, {message.author}!')
+    # if 'hallo' in message.content.lower():
+    #     await channel.send(f'Hallo, {message.author}!')
 
     if 'banana' in message.content.lower():
         await message.delete()
